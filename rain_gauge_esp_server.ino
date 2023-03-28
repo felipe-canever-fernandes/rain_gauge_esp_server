@@ -16,10 +16,17 @@ constexpr auto jsonDocumentSize = size_t(128);
 
 auto webServer = ESP8266WebServer(webServerPort);
 
+
+/// @brief Sets up the serial port.
 auto setUpSerial() -> void;
+
+/// @brief Sets up the Wi-Fi network connection.
 auto setUpWiFi() -> void;
+
+/// @brief Sets up the HTTP web server.
 auto setUpWebServer() -> void;
 
+/// @brief Handles an HTTP request to the web server.
 auto handleRequest() -> void;
 
 auto setup() -> void
