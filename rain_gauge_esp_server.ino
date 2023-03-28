@@ -2,7 +2,11 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266WiFi.h>
 
+constexpr auto wiFiSSID = "";
+constexpr auto wiFiPassword = "";
+
 constexpr auto webServerPort = 80;
+
 auto webServer = ESP8266WebServer(webServerPort);
 
 auto setUpSerial() -> void;
@@ -31,14 +35,11 @@ auto setUpSerial() -> void
 
 auto setUpWiFi() -> void
 {
-	constexpr auto ssid = "Felipe's Galaxy S20+";
-	constexpr auto password = "esgv1755";
-
-	WiFi.begin(ssid, password);
+	WiFi.begin(wiFiSSID, wiFiPassword);
 
 	while (WiFi.status() != WL_CONNECTED)
 	{
-		Serial.printf("Connecting to Wi-Fi network \"%s\"...\n", ssid);
+		Serial.printf("Connecting to Wi-Fi network \"%s\"...\n", wiFiSSID);
 		delay(1000uL);
 	}
 
