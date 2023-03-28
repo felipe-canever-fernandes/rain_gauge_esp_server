@@ -5,7 +5,7 @@
 
 #include "utilities.hpp"
 
-using rain_gauge_esp_server::fromJsonToString;
+using rainGaugeEspServer::fromJsonToString;
 
 constexpr auto wiFiSsid = "";
 constexpr auto wiFiPassword = "";
