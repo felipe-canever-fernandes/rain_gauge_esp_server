@@ -7,7 +7,7 @@
 
 using rain_gauge_esp_server::fromJsonToString;
 
-constexpr auto wiFiSSID = "";
+constexpr auto wiFiSsid = "";
 constexpr auto wiFiPassword = "";
 
 constexpr auto webServerPort = 80;
@@ -42,11 +42,11 @@ auto setUpSerial() -> void
 
 auto setUpWiFi() -> void
 {
-	WiFi.begin(wiFiSSID, wiFiPassword);
+	WiFi.begin(wiFiSsid, wiFiPassword);
 
 	while (WiFi.status() != WL_CONNECTED)
 	{
-		Serial.printf("Connecting to Wi-Fi network \"%s\"...\n", wiFiSSID);
+		Serial.printf("Connecting to Wi-Fi network \"%s\"...\n", wiFiSsid);
 		delay(1000uL);
 	}
 
