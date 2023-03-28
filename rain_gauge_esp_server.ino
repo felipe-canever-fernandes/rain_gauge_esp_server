@@ -1,26 +1,26 @@
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 
-auto set_up_serial() -> void;
-auto set_up_wi_fi() -> void;
+auto setUpSerial() -> void;
+auto setUpWiFi() -> void;
 
 auto setup() -> void
 {
-	set_up_serial();
-	set_up_wi_fi();
+	setUpSerial();
+	setUpWiFi();
 
 	Serial.println("Hello, rain gauge ESP server world!");
 }
 
 auto loop() -> void {}
 
-auto set_up_serial() -> void
+auto setUpSerial() -> void
 {
-	constexpr auto baud_rate = 9600uL;
-	Serial.begin(baud_rate);
+	constexpr auto baudRate = 9600uL;
+	Serial.begin(baudRate);
 }
 
-auto set_up_wi_fi() -> void
+auto setUpWiFi() -> void
 {
 	constexpr auto ssid = "Felipe's Galaxy S20+";
 	constexpr auto password = "esgv1755";
