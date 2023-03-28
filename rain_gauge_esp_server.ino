@@ -53,7 +53,9 @@ auto setUpWebServer() -> void
 	webServer.on("/", handleRequest);
 	webServer.begin();
 
-	Serial.printf("Web server started on port %d.\n", webServerPort);
+	Serial.print("Web server started at ");
+	Serial.print(WiFi.localIP());
+	Serial.printf(":%d.\n", webServerPort);
 }
 
 auto handleRequest() -> void
