@@ -1,11 +1,18 @@
 #include <Arduino.h>
+#include <ArduinoJson.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266WiFi.h>
+
+#include "utilities.hpp"
+
+using rain_gauge_esp_server::fromJsonToString;
 
 constexpr auto wiFiSSID = "";
 constexpr auto wiFiPassword = "";
 
 constexpr auto webServerPort = 80;
+
+constexpr auto jsonDocumentSize = size_t(128);
 
 auto webServer = ESP8266WebServer(webServerPort);
 
@@ -66,10 +73,8 @@ auto handleRequest() -> void
 	Serial.print(clientIPAddress);
 	Serial.print(".\n");
 
-	webServer.send
-	(
-		200,
-		"text/plain",
-		"Hello from the rain gauge ESP server!\n"
-	);
+	auto json = StaticJsonDocument<jsonDocumentSize>();
+	json["message"] = "Hello from the rain gauge ESP server!";
+
+	webServer.send(200, "application/json", fromJsonToString(json));
 }
