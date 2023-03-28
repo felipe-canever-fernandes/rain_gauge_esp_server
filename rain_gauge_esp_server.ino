@@ -60,10 +60,10 @@ auto setUpWebServer() -> void
 
 auto handleRequest() -> void
 {
-	auto const clientIP = webServer.client().remoteIP();
+	auto const clientIPAddress = webServer.client().remoteIP();
 
 	Serial.print("A request was made from ");
-	Serial.print(clientIP);
+	Serial.print(clientIPAddress);
 	Serial.print(".\n");
 
 	webServer.send
